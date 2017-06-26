@@ -8,6 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>microservice-discovery-eureka</module>
+		<module>microservice-discovery-eureka-ha</module>
 	</modules>
 	<packaging>pom</packaging>
 
