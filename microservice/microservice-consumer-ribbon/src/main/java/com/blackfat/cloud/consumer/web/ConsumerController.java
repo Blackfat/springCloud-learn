@@ -16,7 +16,7 @@ public class ConsumerController {
     @Autowired
     RestTemplate restTemplate;
 
-    @RequestMapping(value = "baseConsumer")
+    @RequestMapping(value = "consumer-ribbon")
     public String baseConsumer(){
         return restTemplate.getForEntity("http://base-service/users/",String.class).getBody();
     }

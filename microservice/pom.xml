@@ -11,6 +11,7 @@
 		<module>microservice-discovery-eureka-ha</module>
         <module>microservice-provider-base</module>
         <module>microservice-consumer-ribbon</module>
+        <module>microservice-consumer-feign</module>
     </modules>
 	<packaging>pom</packaging>
 
