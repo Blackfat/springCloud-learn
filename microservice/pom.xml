@@ -13,6 +13,7 @@
         <module>microservice-consumer-ribbon</module>
         <module>microservice-consumer-feign</module>
         <module>microservice-provider-base-api</module>
+        <module>microservice-api-gateway</module>
     </modules>
 	<packaging>pom</packaging>
 
