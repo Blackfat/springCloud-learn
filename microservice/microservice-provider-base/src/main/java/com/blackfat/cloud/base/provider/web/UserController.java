@@ -1,7 +1,8 @@
-package com.blackfat.cloud.provider.web;
+package com.blackfat.cloud.base.provider.web;
 
-import com.blackfat.cloud.provider.entity.User;
+import com.blackfat.cloud.base.api.entity.User;
 
+import com.blackfat.cloud.base.api.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -17,8 +18,7 @@ import java.util.*;
  * @create 2017/6/21-14:31
  */
 @Controller
-@RequestMapping(value="/users")
-public class UserController {
+public class UserController implements UserService{
 
     private final Logger logger = Logger.getLogger(getClass());
 
@@ -28,8 +28,6 @@ public class UserController {
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
 
 
-    @RequestMapping(value="/" , method = RequestMethod.GET)
-    @ResponseBody
     public List<User> getUserList(){
         List<User> list = new ArrayList<User>(users.values());
         return list;
@@ -37,8 +35,7 @@ public class UserController {
 
 
 
-    @RequestMapping(value="/", method= RequestMethod.POST)
-    @ResponseBody
+    @Override
     public String postUser(@ModelAttribute User user) {
         ServiceInstance instance = client.getLocalServiceInstance();
         logger.info("/hello1, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
@@ -48,8 +45,7 @@ public class UserController {
         return "success";
     }
 
-    @RequestMapping(value="/{id}", method = RequestMethod.GET)
-    @ResponseBody
+    @Override
     public User getUser(@PathVariable Long id){
         ServiceInstance instance = client.getLocalServiceInstance();
         logger.info("/hello1, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
@@ -58,8 +54,8 @@ public class UserController {
         return users.get(id);
     }
 
-    @RequestMapping(value="/{id}", method= RequestMethod.PUT)
-    @ResponseBody
+
+    @Override
     public String putUser(@PathVariable Long id, @ModelAttribute User user) {
         ServiceInstance instance = client.getLocalServiceInstance();
         logger.info("/hello1, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
@@ -72,8 +68,8 @@ public class UserController {
     }
 
 
-    @ResponseBody
-    @RequestMapping(value="/{id}", method= RequestMethod.DELETE)
+
+    @Override
     public String deleteUser(@PathVariable Long id) {
         ServiceInstance instance = client.getLocalServiceInstance();
         logger.info("/hello1, host:" + instance.getHost() + ", service_id:" + instance.getServiceId());
