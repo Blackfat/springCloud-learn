@@ -33,6 +33,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<!--引入dependency的pom中定义的所有dependency定义-->
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
 				<version>Brixton.SR5</version>
