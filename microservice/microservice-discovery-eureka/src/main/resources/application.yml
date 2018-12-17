@@ -1,11 +1,23 @@
-server:
-  port: 8761                    # 指定该Eureka实例的端口
+spring:
+  application:
+    name: microservice-eureka
 
 eureka:
-  instance:
-    hostname: localhost         # 指定该Eureka实例的主机名
-  client:
-    registerWithEureka: false   # 不向注册中心注册自己
-    fetchRegistry: false        # 不需要检索服务
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+management:
+  security:
+    enabled: false
+
+security:
+  basic:
+    enabled: true
+  user:
+    name: blackfat
+    password: blackfat
+
+
+
+
+
+

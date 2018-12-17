@@ -1,0 +1,16 @@
+server:
+  port: 8762
+
+
+peer1:
+  server:
+      host: peer1
+      port: 8761
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    service-url:
+        defaultZone: http://blackfat:blackfat@${peer1.server.host}:${peer1.server.port}/eureka/
