@@ -27,7 +27,7 @@ public class UserController implements UserService{
 
     static Map<Long, User> users = Collections.synchronizedMap(new HashMap<Long, User>());
 
-
+    @Override
     public List<User> getUserList(){
         List<User> list = new ArrayList<User>(users.values());
         return list;

@@ -1,7 +1,14 @@
 spring:
   application:
-    name: base-service
+   name: micro-base-service
+
+server:
+  port: 18080
+
 eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://blackfat:blackfat@101.132.177.27:8761/eureka/,http://blackfat:blackfat@101.132.177.27:8762/eureka/
