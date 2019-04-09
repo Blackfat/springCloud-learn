@@ -1,5 +1,6 @@
 package com.blackfat.cloud.consumer.service;
 
+import com.blackfat.cloud.consumer.service.hystrix.UserServiceHystrix;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @desc
  * @create 2017/7/6-16:37
  */
-@FeignClient("base-service")
+@FeignClient(value = "micro-base-service",fallback = UserServiceHystrix.class)
 public interface UserService {
 
     @RequestMapping(value = "/users/")

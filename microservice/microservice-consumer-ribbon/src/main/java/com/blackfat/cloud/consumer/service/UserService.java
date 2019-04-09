@@ -20,7 +20,7 @@ public class UserService {
 
     @HystrixCommand(fallbackMethod = "userFallBack")
     public String  getUser(){
-        return restTemplate.getForEntity("http://base-service/users/",String.class).getBody();
+        return restTemplate.getForEntity("http://micro-base-service/users/",String.class).getBody();
     }
 
 
