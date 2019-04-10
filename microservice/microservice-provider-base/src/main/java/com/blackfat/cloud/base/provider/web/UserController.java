@@ -29,6 +29,14 @@ public class UserController implements UserService{
 
     @Override
     public List<User> getUserList(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if(1/0 == 1){
+
+        }
         List<User> list = new ArrayList<User>(users.values());
         return list;
     }

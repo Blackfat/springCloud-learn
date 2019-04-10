@@ -12,3 +12,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://blackfat:blackfat@101.132.177.27:8761/eureka/,http://blackfat:blackfat@101.132.177.27:8762/eureka/
+
+
+debug: true

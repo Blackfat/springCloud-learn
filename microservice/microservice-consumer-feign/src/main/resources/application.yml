@@ -8,6 +8,27 @@ eureka:
 server:
   port: 9999
 
+debug: true
+
 feign:
     hystrix:
        enabled: true
+
+#feign:
+#  client:
+#    config:
+#      default:
+#        connectTimeout: 10000
+#        readTimeout: 10000
+#
+ribbon:
+    ConnectTimeout: 3000
+    ReadTimeout: 3000
+#   最大重试次数MaxAutoRetries+MaxAutoRetriesNextServer+(MaxAutoRetries *MaxAutoRetriesNextServer)
+#   同一台实例最大重试次数,不包括首次调用
+    MaxAutoRetries: 1
+#   重试负载均衡其他的实例最大重试次数,不包括首次调用
+#    MaxAutoRetriesNextServer: 2
+#    OkToRetryOnAllOperations: false
+
+
